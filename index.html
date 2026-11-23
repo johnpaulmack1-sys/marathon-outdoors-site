@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marathon Outdoors | Hardscaping & Outdoor Lighting in Cary, NC</title>
+  <meta name="description" content="Marathon Outdoors builds patios, retaining walls, walkways, outdoor living spaces and outdoor lighting on an open-graded stone base in Cary, Apex, Durham and Chapel Hill, NC.">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Turns on the scroll animations only when JavaScript runs -->
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <!-- ============ HEADER / NAV ============ -->
+  <header class="site-header" id="top">
+    <a href="#top" class="header-logo" aria-label="Marathon Outdoors home">
+      <img src="assets/img/logo.png" alt="Marathon Outdoors">
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="Main">
+      <a href="#projects">Projects</a>
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#owner">Meet the Owner</a>
+      <a href="#quote" class="btn-outline">Request a Quote</a>
+    </nav>
+    <!-- Mobile menu button (shown on phones/tablets only) -->
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- ============ 1. HERO ============ -->
+    <section class="hero" aria-label="Elevated outdoor living">
+      <!-- Hero slideshow. To use a real photo: put it in assets/img/ and
+           set style="--img:url('assets/img/hero-1.jpg')", then delete the
+           "placeholder" class and the <span class="ph-label">. -->
+      <div class="hero-slides">
+        <div class="slide placeholder is-active" style="--img:none">
+          <span class="ph-label">Hero photo 1 · patio at dusk</span>
+        </div>
+        <div class="slide placeholder" style="--img:none">
+          <span class="ph-label">Hero photo 2 · retaining wall</span>
+        </div>
+        <div class="slide placeholder" style="--img:none">
+          <span class="ph-label">Hero photo 3 · lighting at night</span>
+        </div>
+      </div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-panel">
+        <img class="hero-logo intro" style="--d:0" src="assets/img/logo.png" alt="Marathon Outdoors logo">
+        <div class="hero-copy">
+          <h1 class="hero-title">
+            <span class="line intro" style="--d:1">Elevated</span>
+            <span class="line intro" style="--d:2">Outdoor</span>
+            <span class="line intro" style="--d:3">Living</span>
+          </h1>
+          <p class="hero-sub intro" style="--d:4">Patios, retaining walls, walkways and outdoor lighting, built on an open-graded stone base that drains. Serving Cary and the Triangle.</p>
+          <div class="hero-links intro" style="--d:5">
+            <a href="#quote" class="link-underline">Request a Quote</a>
+            <a href="#projects" class="link-underline">See Our Work</a>
+          </div>
+          <p class="hero-rating intro" style="--d:6"><span class="stars" aria-hidden="true">★★★★★</span> 5.0 on Google</p>
+        </div>
+      </div>
+
+      <div class="hero-dots" role="tablist" aria-label="Hero photos">
+        <button class="dot is-active" aria-label="Photo 1"></button>
+        <button class="dot" aria-label="Photo 2"></button>
+        <button class="dot" aria-label="Photo 3"></button>
+      </div>
+    </section>
+
+    <!-- ============ 2. SERVICES ============ -->
+    <section class="services band-light" id="services">
+      <div class="section-head reveal">
+        <h2 class="section-title">Services</h2>
+      </div>
+
+      <div class="service-cards">
+        <article class="service-card reveal" style="--d:0">
+          <div class="photo placeholder"><span class="ph-label">Photo · finished patio</span></div>
+          <div class="service-body">
+            <h3 class="card-title">Hardscapes</h3>
+            <p>Patios, retaining walls, walkways and outdoor living spaces, built on an open-graded stone base that drains water instead of trapping it.</p>
+            <ul class="tag-list">
+              <li>Patios</li><li>Retaining walls</li><li>Walkways</li><li>Outdoor living</li>
+            </ul>
+            <a href="#method" class="link-underline dark">Learn More</a>
+          </div>
+        </article>
+
+        <article class="service-card reveal" style="--d:1">
+          <div class="photo placeholder dark"><span class="ph-label">Photo · lighting at night</span></div>
+          <div class="service-body">
+            <h3 class="card-title">Outdoor Lighting</h3>
+            <p>Landscape and patio lighting that shows off the stonework at night and makes your outdoor space usable after sunset.</p>
+            <ul class="tag-list">
+              <li>Path</li><li>Wall</li><li>Step</li><li>Accent</li>
+            </ul>
+            <a href="#services" class="link-underline dark">Learn More</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ 3. THE OPEN-GRADED METHOD ============ -->
+    <section class="method band-dark" id="method">
+      <div class="method-intro">
+        <h2 class="section-title method-title reveal">The<br>Open-Graded<br>Method</h2>
+        <div class="method-lead reveal" style="--d:1">
+          <p>The open-graded method uses clean, crushed stone to create a strong, stable patio base that allows water to drain naturally.</p>
+          <p>Unlike traditional methods, which use compacted gravel topped with bedding sand, it helps prevent water buildup, shifting, and settling over time.</p>
+        </div>
+      </div>
+
+      <!-- Side-by-side cross-sections. The water animation starts when this scrolls into view. -->
+      <div class="compare" id="compare">
+        <figure class="section-cut traditional reveal" style="--d:0">
+          <figcaption>
+            <span class="cut-name">Traditional base</span>
+            <span class="cut-result">Water gets trapped</span>
+          </figcaption>
+          <div class="cut">
+            <div class="rain" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="layer pavers"><b></b><b></b><b class="sinker"></b><b></b><b></b></div>
+            <div class="layer sand"><span>Bedding sand</span></div>
+            <div class="pool" aria-hidden="true"></div>
+            <div class="layer gravel"><span>Compacted gravel</span></div>
+            <div class="layer soil"><span>Soil</span></div>
+          </div>
+          <ul class="cut-notes">
+            <li>Water sits in the sand and gravel</li>
+            <li>Freezes, swells and washes out the sand</li>
+            <li>Pavers shift, sink and heave over time</li>
+          </ul>
+        </figure>
+
+        <figure class="section-cut marathon reveal" style="--d:1">
+          <figcaption>
+            <span class="cut-name">Marathon open-graded base</span>
+            <span class="cut-result good">Water drains through</span>
+          </figcaption>
+          <div class="cut">
+            <div class="rain" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="layer pavers"><b></b><b></b><b></b><b></b><b></b></div>
+            <div class="layer chips"><span>Clean stone bedding</span></div>
+            <div class="layer stone"><span>Clean, crushed open-graded stone</span></div>
+            <div class="layer soil"><span>Soil</span></div>
+          </div>
+          <ul class="cut-notes">
+            <li>Gaps between the stones let water pass</li>
+            <li>No sand layer to wash out</li>
+            <li>A strong, stable base that stays level</li>
+          </ul>
+        </figure>
+      </div>
+
+      <div class="benefits">
+        <div class="benefit reveal" style="--d:0">
+          <h3>Drains naturally</h3>
+          <p>Water moves down through the stone instead of building up under your patio.</p>
+        </div>
+        <div class="benefit reveal" style="--d:1">
+          <h3>Stays put</h3>
+          <p>Less trapped water means less shifting when the ground freezes and thaws.</p>
+        </div>
+        <div class="benefit reveal" style="--d:2">
+          <h3>Won't settle</h3>
+          <p>A strong, stable stone base that holds its shape over time.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. REVIEWS ============ -->
+    <!-- Paste real Google reviews (with Tom's OK) into these cards. -->
+    <section class="reviews band-light" id="reviews">
+      <div class="reviews-head">
+        <h2 class="section-title reveal">Reviews</h2>
+        <div class="rating-badge reveal" style="--d:1">
+          <span class="rating-num">5.0</span>
+          <span class="rating-meta">
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <span>on Google · [number] reviews</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="review-grid">
+        <blockquote class="review reveal" style="--d:0">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <p class="review-text placeholder-text">Paste a real Google review here.</p>
+          <footer><strong>Reviewer name</strong><span>Town · Project type</span></footer>
+        </blockquote>
+        <blockquote class="review reveal" style="--d:1">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <p class="review-text placeholder-text">Paste a real Google review here.</p>
+          <footer><strong>Reviewer name</strong><span>Town · Project type</span></footer>
+        </blockquote>
+        <blockquote class="review reveal" style="--d:2">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <p class="review-text placeholder-text">Paste a real Google review here.</p>
+          <footer><strong>Reviewer name</strong><span>Town · Project type</span></footer>
+        </blockquote>
+      </div>
+
+      <div class="reviews-foot reveal">
+        <a href="#reviews" class="link-underline dark">Read All Reviews on Google</a>
+      </div>
+    </section>
+
+    <!-- ============ 5. PROJECTS ============ -->
+    <section class="projects band-dark" id="projects">
+      <div class="section-head row reveal">
+        <h2 class="section-title">Projects</h2>
+        <a href="#projects" class="link-underline">View All Projects</a>
+      </div>
+
+      <!-- Staggered grid. Swap each placeholder for one of Tom's ~25 photos. -->
+      <div class="project-grid">
+        <a href="#projects" class="tile t1 reveal" style="--d:0">
+          <div class="photo placeholder dark"><span class="ph-label">Before / after pair</span></div>
+          <div class="tile-caption"><h3>Patios</h3><span>View projects</span></div>
+        </a>
+        <a href="#projects" class="tile t2 reveal" style="--d:1">
+          <div class="photo placeholder dark"><span class="ph-label">Night lighting photo</span></div>
+          <div class="tile-caption"><h3>Lighting</h3><span>View projects</span></div>
+        </a>
+        <a href="#projects" class="tile t3 reveal" style="--d:1">
+          <div class="photo placeholder dark"><span class="ph-label">Retaining wall photo</span></div>
+          <div class="tile-caption"><h3>Retaining Walls</h3><span>View projects</span></div>
+        </a>
+        <a href="#projects" class="tile t4 reveal" style="--d:2">
+          <div class="photo placeholder dark"><span class="ph-label">Walkway photo</span></div>
+          <div class="tile-caption"><h3>Walkways</h3><span>View projects</span></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ 6. MEET THE OWNER ============ -->
+    <section class="owner band-light" id="owner">
+      <div class="owner-photo photo placeholder reveal"><span class="ph-label">Photo of Tom on a job site</span></div>
+      <div class="owner-copy reveal" style="--d:1">
+        <h2 class="section-title">Tom Nobles</h2>
+        <p class="owner-role">Founder, Marathon Outdoors</p>
+        <p class="lead">Tom Nobles grew up in Cary, North Carolina, and developed an interest in landscaping through mowing lawns and taking on landscaping projects while in college.</p>
+        <p>He went on to study mechanical engineering at UNC Charlotte, where he competed in Division I cross country and track. His passion for running continued beyond college, eventually earning him a qualifying time for the 2020 U.S. Olympic Marathon Trials.</p>
+        <p>After working in engineering, Tom decided to turn his entrepreneurial interests and passion for outdoor design into a business. In 2022, he founded Marathon Outdoors, combining his technical background, hands-on experience, and attention to detail to create beautiful, functional outdoor spaces.</p>
+        <ul class="owner-facts">
+          <li><strong>Cary, NC</strong><span>Hometown</span></li>
+          <li><strong>UNC Charlotte</strong><span>Mechanical engineering</span></li>
+          <li><strong>2020</strong><span>Olympic Marathon Trials qualifier</span></li>
+          <li><strong>2022</strong><span>Founded Marathon Outdoors</span></li>
+        </ul>
+        <a href="#quote" class="btn-solid">Request a Quote</a>
+      </div>
+    </section>
+
+    <!-- ============ 7. REQUEST A QUOTE (CTA) ============ -->
+    <section class="cta band-dark" id="quote">
+      <h2 class="cta-title reveal">Let's build something<br>that lasts.</h2>
+      <p class="cta-text reveal" style="--d:1">Tell us about your project. Consultations are $150, credited toward your project if you hire us.</p>
+      <div class="hero-links reveal" style="--d:2">
+        <a href="#quote" class="link-underline">Request a Quote</a>
+        <a href="#quote" class="link-underline">Get an Estimate</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <img class="footer-logo" src="assets/img/logo.png" alt="Marathon Outdoors">
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#projects">Projects</a>
+        <a href="#services">Services</a>
+        <a href="#method">Open-Graded Method</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#owner">Meet the Owner</a>
+        <a href="#quote">Request a Quote</a>
+      </nav>
+      <div class="footer-contact">
+        <p>(555) 000-0000</p>
+        <p>hello@example.com</p>
+        <p>Cary · Apex · Durham · Chapel Hill · Wake County, NC</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Marathon Outdoors</span>
+      <span>Licensed &amp; insured</span>
+    </div>
+  </footer>
+
+  <!-- Sticky action bar (phones only). Replace the placeholder number with Tom's. -->
+  <div class="mobile-bar" aria-label="Quick actions">
+    <a href="tel:5550000000" class="mb-call">Call Tom</a>
+    <a href="#quote" class="mb-quote">Request a Quote</a>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
