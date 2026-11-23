@@ -32,20 +32,13 @@
   <main>
 
     <!-- ============ 1. HERO ============ -->
-    <section class="hero" aria-label="Elevated outdoor living">
-      <!-- Hero slideshow. To use a real photo: put it in assets/img/ and
-           set style="--img:url('assets/img/hero-1.jpg')", then delete the
-           "placeholder" class and the <span class="ph-label">. -->
+    <section class="hero" aria-label="Enhanced outdoor living">
+      <!-- Hero slideshow: swap a photo by changing the --img url on a slide. -->
       <div class="hero-slides">
-        <div class="slide placeholder is-active" style="--img:none">
-          <span class="ph-label">Hero photo 1 · patio at dusk</span>
-        </div>
-        <div class="slide placeholder" style="--img:none">
-          <span class="ph-label">Hero photo 2 · retaining wall</span>
-        </div>
-        <div class="slide placeholder" style="--img:none">
-          <span class="ph-label">Hero photo 3 · lighting at night</span>
-        </div>
+        <!-- Photos are loaded from Marathon Outdoors' current site (marathonoutdoorsnc.com). -->
+        <div class="slide is-active" role="img" aria-label="Front yard landscape lighting at night" style="--img:url('https://images.squarespace-cdn.com/content/v1/65f473b0e1353c75dc67d899/c6737a00-3f98-446c-b4c2-1e24a756b4c6/Pam+Front+House+Lighting.JPG?format=2500w')"></div>
+        <div class="slide" role="img" aria-label="Paver patio with fire pit and seating wall" style="--img:url('https://images.squarespace-cdn.com/content/v1/65f473b0e1353c75dc67d899/b3ac4c7a-02c4-42c7-b710-ab89f88c3330/Project+1+Pre-Completion+Wall+and+Fire+Pit+Detail.JPG?format=2500w')"></div>
+        <div class="slide" role="img" aria-label="Backyard with fire pit, seating wall and turf" style="--img:url('https://images.squarespace-cdn.com/content/v1/65f473b0e1353c75dc67d899/25b8161c-60fe-4da1-9cd8-f62ae1943a9d/Bakley+Backyard.JPG?format=2500w')"></div>
       </div>
       <div class="hero-overlay"></div>
 
@@ -53,7 +46,7 @@
         <img class="hero-logo intro" style="--d:0" src="assets/img/logo.png" alt="Marathon Outdoors logo">
         <div class="hero-copy">
           <h1 class="hero-title">
-            <span class="line intro" style="--d:1">Elevated</span>
+            <span class="line intro" style="--d:1">Enhanced</span>
             <span class="line intro" style="--d:2">Outdoor</span>
             <span class="line intro" style="--d:3">Living</span>
           </h1>
@@ -81,7 +74,7 @@
 
       <div class="service-cards">
         <article class="service-card reveal" style="--d:0">
-          <div class="photo placeholder"><span class="ph-label">Photo · finished patio</span></div>
+          <div class="photo" role="img" aria-label="Paver patio with steps and seating wall" style="--img:url('https://images.squarespace-cdn.com/content/v1/65f473b0e1353c75dc67d899/719923dd-8df9-4a46-b848-27bc4f26b606/Colberg+Steps.JPG?format=1500w')"></div>
           <div class="service-body">
             <h3 class="card-title">Hardscapes</h3>
             <p>Patios, retaining walls, walkways and outdoor living spaces, built on an open-graded stone base that drains water instead of trapping it.</p>
@@ -93,7 +86,7 @@
         </article>
 
         <article class="service-card reveal" style="--d:1">
-          <div class="photo placeholder dark"><span class="ph-label">Photo · lighting at night</span></div>
+          <div class="photo dark" role="img" aria-label="Lit stairs and paver landings at night" style="--img:url('https://images.squarespace-cdn.com/content/v1/65f473b0e1353c75dc67d899/5833d094-7065-40bc-8297-84f05008bb3a/Pam+Steps+Lighting.jpg?format=1500w')"></div>
           <div class="service-body">
             <h3 class="card-title">Outdoor Lighting</h3>
             <p>Landscape and patio lighting that shows off the stonework at night and makes your outdoor space usable after sunset.</p>
@@ -175,39 +168,54 @@
     </section>
 
     <!-- ============ 4. REVIEWS ============ -->
-    <!-- Paste real Google reviews (with Tom's OK) into these cards. -->
-    <section class="reviews band-light" id="reviews">
+        <section class="reviews band-light" id="reviews">
       <div class="reviews-head">
         <h2 class="section-title reveal">Reviews</h2>
         <div class="rating-badge reveal" style="--d:1">
           <span class="rating-num">5.0</span>
           <span class="rating-meta">
             <span class="stars" aria-hidden="true">★★★★★</span>
-            <span>on Google · [number] reviews</span>
+            <span>21 reviews on Google</span>
           </span>
         </div>
       </div>
 
+      <!-- Real Google reviews for Marathon Outdoors LLC (copied Nov 2026). Long reviews are shortened with "…". -->
       <div class="review-grid">
         <blockquote class="review reveal" style="--d:0">
           <span class="stars" aria-hidden="true">★★★★★</span>
-          <p class="review-text placeholder-text">Paste a real Google review here.</p>
-          <footer><strong>Reviewer name</strong><span>Town · Project type</span></footer>
+          <p class="review-text">“Tom and Marathon Outdoors was absolutely amazing to work with. He listens, he has incredible vision and is extremely meticulous. His work is impeccable and he is fast. I would not recommend anyone more than Tom with Marathon. Small or large job, he is the best! He transformed our backyard into an oasis that we can be used to every day. Call him!”</p>
+          <footer><strong>Megan F.</strong><span>Backyard transformation · Google review</span></footer>
         </blockquote>
         <blockquote class="review reveal" style="--d:1">
           <span class="stars" aria-hidden="true">★★★★★</span>
-          <p class="review-text placeholder-text">Paste a real Google review here.</p>
-          <footer><strong>Reviewer name</strong><span>Town · Project type</span></footer>
+          <p class="review-text">“Tom did a fantastic job on our stairs and firepit area. It started as a complete blank canvas (see last photo). He provided design ideas with helpful suggestions re lighting. Highest recommendation.”</p>
+          <footer><strong>Monica S.</strong><span>Stairs &amp; fire pit area · Google review</span></footer>
         </blockquote>
         <blockquote class="review reveal" style="--d:2">
           <span class="stars" aria-hidden="true">★★★★★</span>
-          <p class="review-text placeholder-text">Paste a real Google review here.</p>
-          <footer><strong>Reviewer name</strong><span>Town · Project type</span></footer>
+          <p class="review-text">“Tom came up with several ideas to review with us. Once we selected the plan, Tom was on time and finished exactly on budget. He was also flexible as we added additional lighting. Tom is passionate about his work and it shows in his attention to detail. …”</p>
+          <footer><strong>Dan B.</strong><span>Drainage, fire pit &amp; lighting · Google review</span></footer>
+        </blockquote>
+        <blockquote class="review reveal" style="--d:0">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <p class="review-text">“We had an extremely hazardously steep side yard that he installed some beautiful steps which we use constantly. … I appreciate that he offered solutions within the budget we'd planned for. We will definitely be using him again!”</p>
+          <footer><strong>Kate W.</strong><span>Steps &amp; drainage · Google review</span></footer>
+        </blockquote>
+        <blockquote class="review reveal" style="--d:1">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <p class="review-text">“Tom is so personable, listened to what we wanted and created exactly that. He had great ideas, was punctual, no surprises and even followed up following the project. We highly recommend Tom for all your tree/plantings/beds, hardscape, lighting and yard needs.”</p>
+          <footer><strong>Samantha</strong><span>Backyard, front yard &amp; lighting · Google review</span></footer>
+        </blockquote>
+        <blockquote class="review reveal" style="--d:2">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <p class="review-text">“Tom transformed our backyard beyond our highest expectations. From building a retaining wall to removing a large tree and grading the entire yard and installing lighting, the change in appearance was astonishing. …”</p>
+          <footer><strong>Molly G.</strong><span>Retaining wall, grading &amp; lighting · Google review</span></footer>
         </blockquote>
       </div>
 
       <div class="reviews-foot reveal">
-        <a href="#reviews" class="link-underline dark">Read All Reviews on Google</a>
+        <a href="https://www.google.com/search?q=Marathon+Outdoors+LLC+Apex+NC+reviews" class="link-underline dark" target="_blank" rel="noopener">Read All Reviews on Google</a>
       </div>
     </section>
 
@@ -218,41 +226,47 @@
         <a href="#projects" class="link-underline">View All Projects</a>
       </div>
 
-      <!-- Staggered grid. Swap each placeholder for one of Tom's ~25 photos. -->
+      <!-- Staggered grid of Tom's project photos (from marathonoutdoorsnc.com). -->
       <div class="project-grid">
         <a href="#projects" class="tile t1 reveal" style="--d:0">
-          <div class="photo placeholder dark"><span class="ph-label">Before / after pair</span></div>
-          <div class="tile-caption"><h3>Patios</h3><span>View projects</span></div>
+          <div class="photo dark" role="img" aria-label="Patio with fire pit, seating wall &amp; sun sail" style="--img:url('https://images.squarespace-cdn.com/content/v1/65f473b0e1353c75dc67d899/c3e3a868-4328-44dc-a740-19c609350d24/Kevin+Patio+Arial.JPG?format=1500w')"></div>
+          <div class="tile-caption"><h3>Patios</h3><span>Patio with fire pit, seating wall &amp; sun sail</span></div>
         </a>
         <a href="#projects" class="tile t2 reveal" style="--d:1">
-          <div class="photo placeholder dark"><span class="ph-label">Night lighting photo</span></div>
-          <div class="tile-caption"><h3>Lighting</h3><span>View projects</span></div>
+          <div class="photo dark" role="img" aria-label="Stair treads with fire pit and seating wall" style="--img:url('https://images.squarespace-cdn.com/content/v1/65f473b0e1353c75dc67d899/84643521-4885-46d8-ab46-7208fcb7dc7a/Mill+Valley+Stairs.JPG?format=1500w')"></div>
+          <div class="tile-caption"><h3>Steps &amp; Stairs</h3><span>Stair treads with fire pit and seating wall</span></div>
         </a>
         <a href="#projects" class="tile t3 reveal" style="--d:1">
-          <div class="photo placeholder dark"><span class="ph-label">Retaining wall photo</span></div>
-          <div class="tile-caption"><h3>Retaining Walls</h3><span>View projects</span></div>
+          <div class="photo dark" role="img" aria-label="Herringbone paver walkway with landings" style="--img:url('https://images.squarespace-cdn.com/content/v1/65f473b0e1353c75dc67d899/10875d74-0bc5-4efc-95f9-2cb311d00f47/Pam+Steps+Looking+Down.JPG?format=1500w')"></div>
+          <div class="tile-caption"><h3>Walkways</h3><span>Herringbone paver walkway with landings</span></div>
         </a>
         <a href="#projects" class="tile t4 reveal" style="--d:2">
-          <div class="photo placeholder dark"><span class="ph-label">Walkway photo</span></div>
-          <div class="tile-caption"><h3>Walkways</h3><span>View projects</span></div>
+          <div class="photo dark" role="img" aria-label="Patio with seating walls" style="--img:url('https://images.squarespace-cdn.com/content/v1/65f473b0e1353c75dc67d899/bafc0ca5-4f9e-475a-ab2e-323fdec242aa/Pam+Back+Patio.JPG?format=1500w')"></div>
+          <div class="tile-caption"><h3>Seating Walls</h3><span>Patio with seating walls</span></div>
         </a>
       </div>
     </section>
 
     <!-- ============ 6. MEET THE OWNER ============ -->
     <section class="owner band-light" id="owner">
-      <div class="owner-photo photo placeholder reveal"><span class="ph-label">Photo of Tom on a job site</span></div>
+      <div class="owner-media reveal">
+        <div class="owner-photo photo" role="img" aria-label="Tom Nobles with his family" style="--img:url('https://images.squarespace-cdn.com/content/v1/65f473b0e1353c75dc67d899/2d925787-801f-4102-918d-5f4d7d2ac220/Family+Photo.jpg?format=1000w')"></div>
+        <figure class="bib">
+          <img src="https://images.squarespace-cdn.com/content/v1/65f473b0e1353c75dc67d899/26646309-b5a9-4da8-93f9-5624c5904a65/Nobles+Olympic+Trails+Bib.jpg?format=500w" alt="Tom's U.S. Olympic Team Trials race bib">
+          <figcaption>U.S. Olympic Marathon Trials</figcaption>
+        </figure>
+      </div>
       <div class="owner-copy reveal" style="--d:1">
         <h2 class="section-title">Tom Nobles</h2>
         <p class="owner-role">Founder, Marathon Outdoors</p>
         <p class="lead">Tom Nobles grew up in Cary, North Carolina, and developed an interest in landscaping through mowing lawns and taking on landscaping projects while in college.</p>
-        <p>He went on to study mechanical engineering at UNC Charlotte, where he competed in Division I cross country and track. His passion for running continued beyond college, eventually earning him a qualifying time for the 2020 U.S. Olympic Marathon Trials.</p>
-        <p>After working in engineering, Tom decided to turn his entrepreneurial interests and passion for outdoor design into a business. In 2022, he founded Marathon Outdoors, combining his technical background, hands-on experience, and attention to detail to create beautiful, functional outdoor spaces.</p>
+        <p>He went on to study mechanical engineering at UNC Charlotte, where he competed in Division I cross country and track. His passion for running continued beyond college, eventually earning him a <strong>qualifying time for the U.S. Olympic Marathon Trials</strong> (2020).</p>
+        <p>After working in engineering, Tom decided to turn his entrepreneurial interests and passion for outdoor design into a business. In 2022, he <strong>founded Marathon Outdoors</strong>, combining his technical background, hands-on experience, and attention to detail to create beautiful, functional outdoor spaces.</p>
         <ul class="owner-facts">
-          <li><strong>Cary, NC</strong><span>Hometown</span></li>
-          <li><strong>UNC Charlotte</strong><span>Mechanical engineering</span></li>
-          <li><strong>2020</strong><span>Olympic Marathon Trials qualifier</span></li>
-          <li><strong>2022</strong><span>Founded Marathon Outdoors</span></li>
+          <li class="feature"><strong>Olympic Marathon Trials Qualifier</strong><span>2020 U.S. Olympic Trials</span></li>
+          <li class="feature"><strong>Founded Marathon Outdoors</strong><span>2022 · Cary &amp; Apex, NC</span></li>
+          <li><strong>Division I Runner</strong><span>UNC Charlotte cross country &amp; track</span></li>
+          <li><strong>Mechanical Engineer</strong><span>UNC Charlotte</span></li>
         </ul>
         <a href="#quote" class="btn-solid">Request a Quote</a>
       </div>

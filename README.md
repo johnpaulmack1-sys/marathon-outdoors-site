@@ -56,3 +56,9 @@ Do the same for any `.photo placeholder` box: remove `placeholder`, add
 - Fonts: HiJO Black for all titles, Antonio Bold for subtitles, labels, nav and buttons, Satoshi for body text (free, Fontshare license).
   HiJO has no curly apostrophe, "·", "©" or dashes; the browser draws those in Antonio automatically.
 - Placeholder contact info (555 number, example.com email) is for the class demo.
+
+## Photos
+
+Project photos, Tom's family photo and his Olympic Trials bib load from Marathon Outdoors' current Squarespace site (images.squarespace-cdn.com). If that site is ever taken down, download the photos into `assets/img/` and change each `--img:url(...)` / `src` to the local file.
+
+Accent color: `#8ab8fe`, the blue from the logo's square.
