@@ -27,7 +27,7 @@
     ['steps', 'Steps & stairs', 'Stone or paver steps'],
     ['firepit', 'Fire pit', 'Built-in fire feature'],
     ['kitchen', 'Outdoor kitchen', 'Island, grill or bar'],
-    ['lighting', 'Landscape lighting', 'Paths, steps, house, trees'],
+    ['lighting', 'Landscape lighting', 'Paths, walls, steps, accents'],
     ['drainage', 'Drainage fix', 'Standing water or erosion'],
     ['turf', 'Turf or gravel area', 'Artificial turf or gravel'],
   ];
@@ -54,21 +54,21 @@
     est: null, sent: false,
   });
   let S = fresh();
-  let step = 'type';
+  let step = 'intro';
 
   // ---------- flow ----------
   const needsMaterial = () => S.types.has('patio') || S.types.has('walkway');
   // before anything is picked, assume the material step so the step count doesn't jump
   const showMaterial = () => S.types.size === 0 || needsMaterial();
   const flow = () => [
-    'type', 'details', showMaterial() ? 'material' : null, 'site', 'where', 'estimate',
+    'intro', 'type', 'details', showMaterial() ? 'material' : null, 'site', 'estimate',
     S.fit === 'close' ? 'options' : null,
     S.fit === 'no' ? 'over' : null,
     (S.fit === 'yes' || S.fit === 'close' || S.sendAnyway) ? 'contact' : null,
     (S.fit === 'yes' || S.fit === 'close') ? 'pay' : null,
     'done',
   ].filter(Boolean);
-  const questionSteps = () => flow().slice(0, flow().indexOf('estimate'));
+  const questionSteps = () => flow().slice(1, flow().indexOf('estimate'));
 
   // ---------- math ----------
   const times = ([lo, hi], k) => [lo * k, hi * k];
@@ -144,6 +144,16 @@
 
   // ---------- steps ----------
   const STEPS = {
+    intro: {
+      render: () => `<p class="q-kicker">Before we book your consultation</p>` +
+        head('A quick questionnaire first', 'Every Marathon Outdoors project starts here. It takes about two minutes.') +
+        `<ul class="q-points">
+           <li><strong>You get a ballpark price now</strong><span>No waiting on a call to learn what your project might cost.</span></li>
+           <li><strong>We make sure it’s a good fit</strong><span>Tom visits projects whose scope and budget line up, so every consultation is worth your time and his.</span></li>
+           <li><strong>Tom arrives prepared</strong><span>He’ll already know your project before he walks your yard.</span></li>
+         </ul>`,
+      valid: () => true,
+    },
     type: {
       render: () => head('What are you building?', 'Pick everything that applies. You can choose more than one.') +
         `<div class="q-grid">${TYPES.map(([v, l, d]) => opt('types', v, l, d, S.types.has(v), true)).join('')}</div>`,
@@ -161,8 +171,7 @@
         if (S.types.has('steps')) h += field('Number of steps', `<div class="q-row">${num('steps', d.steps, 'steps', 1, 60)}</div>`);
         if (S.types.has('kitchen')) h += field('Outdoor kitchen', chips('d.kitchen', [['small', 'Small · grill island'], ['medium', 'Medium · island + counter'], ['large', 'Large · full kitchen']], d.kitchen));
         if (S.types.has('lighting')) h += field('Lights', `<div class="q-row">${num('fixtures', d.fixtures, 'fixtures', 1, 200)}</div>`, 'A typical front yard uses 8–15 lights.');
-        if (S.types.has('drainage')) h += field('Drainage', `<div class="q-row">${num('drainLen', d.drainLen, 'ft of drain')}</div>` +
-          chips('d.crawl', [[false, 'Yard only'], [true, 'Yard + crawlspace']], d.crawl));
+        if (S.types.has('drainage')) h += field('Drainage', `<div class="q-row">${num('drainLen', d.drainLen, 'ft of drain')}</div>`);
         if (S.types.has('turf')) h += field('Turf or gravel', chips('d.turfKind', [['turf', 'Artificial turf'], ['gravel', 'Gravel']], d.turfKind) + `<div class="q-row">${num('turfSqFt', d.turfSqFt, 'sq ft')}</div>`);
         if (S.types.has('firepit')) h += field('Fire pit', '<p class="q-note">Included. Tom will help you pick the style.</p>');
         return h;
@@ -172,32 +181,20 @@
     material: {
       render: () => head('Which material?', 'This is the biggest factor in price.') +
         `<div class="q-grid two">${Object.entries(P.materials).map(([v, m]) =>
-          opt('material', v, m.label, { standard: '$ · durable, many colors', premium: '$$ · modern, clean look', natural: '$$$ · one-of-a-kind', gravel: '$ · relaxed, drains well' }[v], S.material === v)).join('')}</div>`,
+          opt('material', v, m.label, { gravel: '$ · relaxed, drains well', standard: '$ · durable, many colors', brick: '$$ · classic, timeless', premium: '$$ · modern, clean look', natural: '$$$ · one-of-a-kind', unsure: 'Tom will help you choose' }[v], S.material === v)).join('')}</div>`,
       valid: () => true,
     },
     site: {
-      render: () => head('About your yard', 'These change how much work it takes.') +
-        field('How flat is the area?', chips('slope', [['flat', 'Flat'], ['gentle', 'Gentle slope'], ['steep', 'Steep']], S.slope)) +
-        field('Can a small machine reach the work area?', chips('access', [['wide', 'Yes · 6 ft+ gate'], ['narrow', 'Narrow gate'], ['none', 'No access']], S.access)) +
-        field('Is there an old patio or concrete to remove?', chips('removal', [['no', 'No'], ['yes', 'Yes']], S.removal)) +
-        field('Does water pool or wash out there?', chips('water', [['no', 'No'], ['some', 'Sometimes'], ['yes', 'Yes, a lot']], S.water),
-          S.water === 'yes' && !S.types.has('drainage') ? 'Tom may suggest a drainage fix. Our open-graded base also helps.' : ''),
-      valid: () => true,
-    },
-    where: {
       render: () => {
         const z = S.zip.trim();
         const inArea = /^\d{5}$/.test(z) ? P.serviceZips.includes(z) : null;
-        return head('Where and when?') +
+        return head('About your yard', 'Last question before your estimate.') +
+          field('How flat is the area?', chips('slope', [['flat', 'Flat'], ['gentle', 'Gentle slope'], ['steep', 'Steep']], S.slope)) +
+          field('Can a small machine reach it?', chips('access', [['wide', 'Yes · 6 ft+ gate'], ['narrow', 'Narrow gate'], ['none', 'No access']], S.access)) +
           field('Project ZIP code', `<input class="q-input short" type="text" inputmode="numeric" maxlength="5" autocomplete="postal-code" placeholder="27511" value="${esc(z)}" data-text="zip">`,
-            inArea === true ? '<span class="q-ok">✓ In our service area</span>' : inArea === false ? 'That ZIP may be outside our usual area (Cary, Apex, Durham, Chapel Hill, Wake County). You can still continue.' : '') +
-          field('When would you like to start?', chips('timeline', [['asap', 'As soon as possible'], ['1-3', '1–3 months'], ['3-6', '3–6 months'], ['planning', 'Just planning']], S.timeline));
+            inArea === true ? '<span class="q-ok">✓ In our service area</span>' : inArea === false ? 'That ZIP may be outside our usual area (Cary, Apex, Durham, Chapel Hill, Wake County). You can still continue.' : '');
       },
-      valid: () => {
-        if (!/^\d{5}$/.test(S.zip.trim())) return 'Enter a 5-digit ZIP code.';
-        if (!S.timeline) return 'Choose a timeline.';
-        return true;
-      },
+      valid: () => /^\d{5}$/.test(S.zip.trim()) || 'Enter a 5-digit ZIP code.',
     },
     estimate: {
       render: () => {
@@ -223,7 +220,7 @@
         const ideas = [];
         if (needsMaterial() && S.material !== 'standard' && S.material !== 'gravel') {
           const e = estimate({ ...S, material: 'standard' });
-          ideas.push(['material:standard', 'Switch to standard pavers', `Same layout, durable concrete pavers: ${money(e.low)} – ${money(e.high)}`]);
+          ideas.push(['material:standard', 'Switch to concrete pavers', `Same layout, durable concrete pavers: ${money(e.low)} – ${money(e.high)}`]);
         }
         if (S.types.has('patio') && S.d.patioSize !== 'small') {
           const smaller = { large: 'medium', medium: 'small', custom: 'medium' }[S.d.patioSize];
@@ -258,7 +255,6 @@
           ${input('name', 'Full name', 'text', 'name')}
           ${input('phone', 'Phone', 'tel', 'tel')}
           ${input('email', 'Email', 'email', 'email')}
-          ${input('address', 'Project address', 'text', 'street-address')}
           <label class="q-field full"><span class="q-label">Anything else? (optional)</span>
             <textarea class="q-input" rows="3" data-text="c.notes" placeholder="Slope, drainage, existing patio, HOA…">${esc(S.c.notes)}</textarea></label>
         </div>`,
@@ -267,7 +263,6 @@
         if (c.name.trim().length < 2) return 'Please enter your name.';
         if (c.phone.replace(/\D/g, '').length < 10) return 'Please enter a 10-digit phone number.';
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.email)) return 'Please enter a valid email.';
-        if (c.address.trim().length < 5) return 'Please enter the project address.';
         return true;
       },
     },
@@ -306,14 +301,14 @@
     const f = flow();
     const qs = questionSteps();
     const qi = qs.indexOf(step);
-    stepLabel.textContent = qi >= 0 ? `Step ${qi + 1} of ${qs.length}` : step === 'done' ? 'Done' : 'Your estimate';
-    bar.style.width = (qi >= 0 ? (qi + 1) / (qs.length + 1) : 1) * 100 + '%';
+    stepLabel.textContent = qi >= 0 ? `Step ${qi + 1} of ${qs.length}` : step === 'intro' ? 'About 2 minutes' : step === 'done' ? 'Done' : 'Your estimate';
+    bar.style.width = (step === 'intro' ? 0 : qi >= 0 ? (qi + 1) / (qs.length + 1) : 1) * 100 + '%';
     body.innerHTML = STEPS[step].render() + '<p class="q-error" role="alert"></p>';
     body.scrollTop = 0;
     // footer buttons
     const i = f.indexOf(step);
     backBtn.hidden = i === 0 || step === 'done';
-    const labels = { where: 'See my estimate', estimate: 'Continue', contact: S.sendAnyway ? 'Send to Tom' : 'Continue to booking', done: 'Close' };
+    const labels = { intro: 'Start questionnaire', site: 'See my estimate', estimate: 'Continue', contact: S.sendAnyway ? 'Send to Tom' : 'Continue to booking', done: 'Close' };
     nextBtn.hidden = step === 'pay';
     nextBtn.textContent = labels[step] || 'Continue';
     if (!reduceMotion) {
@@ -436,7 +431,7 @@
   // ---------- open / close ----------
   function open() {
     if (S.sent || step === 'done') { S = fresh(); }
-    if (!S.est) step = 'type';
+    if (!S.est) step = 'intro';
     document.documentElement.classList.add('q-open');
     document.body.classList.remove('menu-open');
     dlg.showModal();
@@ -444,7 +439,7 @@
   }
   function close() {
     dlg.close();
-    if (step === 'done') { S = fresh(); step = 'type'; }
+    if (step === 'done') { S = fresh(); step = 'intro'; }
   }
   document.addEventListener('click', (e) => {
     const t = e.target.closest('[data-quote]');

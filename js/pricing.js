@@ -18,10 +18,14 @@ window.MO_PRICING = {
 
   // ---- Surfaces: price per square foot, by material ----
   materials: {
-    standard: { label: 'Standard concrete pavers', perSqFt: [18, 26] },
-    premium:  { label: 'Premium / large-format pavers', perSqFt: [24, 34] },
-    natural:  { label: 'Natural stone (flagstone, bluestone)', perSqFt: [30, 45] },
-    gravel:   { label: 'Gravel or glued gravel', perSqFt: [8, 14] },
+    // listed from most budget-friendly to most expensive (this order is the order on screen)
+    gravel:   { label: 'Gravel', perSqFt: [8, 14] },
+    standard: { label: 'Concrete pavers', perSqFt: [18, 26] },
+    brick:    { label: 'Brick', perSqFt: [22, 32] },
+    premium:  { label: 'Premium pavers', perSqFt: [24, 34] },
+    natural:  { label: 'Natural stone', perSqFt: [30, 45] },
+    // "I'm not sure": shows a wider range covering concrete pavers to premium pavers
+    unsure:   { label: "I'm not sure yet", perSqFt: [18, 34] },
   },
   walkwayMultiplier: 1.1,          // walkways cost a bit more per sq ft than patios (more edges/cuts)
 
