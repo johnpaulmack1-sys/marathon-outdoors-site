@@ -62,3 +62,17 @@ Do the same for any `.photo placeholder` box: remove `placeholder`, add
 Project photos, Tom's family photo and his Olympic Trials bib load from Marathon Outdoors' current Squarespace site (images.squarespace-cdn.com). If that site is ever taken down, download the photos into `assets/img/` and change each `--img:url(...)` / `src` to the local file.
 
 Accent color: `#8ab8fe`, the blue from the logo's square.
+
+## Quote estimator
+
+Every "Request a Quote" / "Get an Estimate" button has a `data-quote` attribute, which opens the estimator pop-up (`<dialog id="quote-dialog">` at the bottom of `index.html`).
+
+- `js/pricing.js` holds **all the prices** (sample numbers for now). Tom can edit this one file without touching the logic.
+  - Set `demoPricing: false` when real prices are in.
+  - Put the Formspree URL in `formEndpoint` so requests are emailed to Tom.
+  - Put the Stripe Payment Link in `stripePaymentLink` for the $150 consultation.
+- `js/estimator.js` holds the steps: project type → sizes → material → yard → ZIP/timeline → **estimate** → "Does this work for your budget?"
+  - **Yes** → contact info → pay $150 → done
+  - **Close** → ways to lower the price (cheaper material, smaller size, phases) → contact → pay
+  - **No** → budget question → send info to Tom with no fee, or start over smaller
+- Styles are in `css/styles.css` under "QUOTE ESTIMATOR". It goes full screen on phones.

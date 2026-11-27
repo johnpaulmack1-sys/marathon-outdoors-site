@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Marathon Outdoors | Hardscaping & Outdoor Lighting in Cary, NC</title>
   <meta name="description" content="Marathon Outdoors builds patios, retaining walls, walkways, outdoor living spaces and outdoor lighting on an open-graded stone base in Cary, Apex, Durham and Chapel Hill, NC.">
-  <link rel="stylesheet" href="css/styles.css?v=4">
+  <link rel="stylesheet" href="css/styles.css?v=5">
   <!-- Turns on the scroll animations only when JavaScript runs -->
   <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -21,7 +21,7 @@
       <a href="#services">Services</a>
       <a href="#reviews">Reviews</a>
       <a href="#owner">Meet the Owner</a>
-      <a href="#quote" class="btn-outline">Request a Quote</a>
+      <a data-quote href="#quote" class="btn-outline">Request a Quote</a>
     </nav>
     <!-- Mobile menu button (shown on phones/tablets only) -->
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
@@ -52,7 +52,7 @@
           </h1>
           <p class="hero-sub intro" style="--d:4">Patios, retaining walls, walkways and outdoor lighting, built on an open-graded stone base that drains. Serving Cary and the Triangle.</p>
           <div class="hero-links intro" style="--d:5">
-            <a href="#quote" class="link-underline">Request a Quote</a>
+            <a data-quote href="#quote" class="link-underline">Request a Quote</a>
             <a href="#projects" class="link-underline">See Our Work</a>
           </div>
           <p class="hero-rating intro" style="--d:6"><span class="stars" aria-hidden="true">★★★★★</span> 5.0 on Google</p>
@@ -273,7 +273,7 @@
           <li><strong>Ran D1 Cross Country at UNC Charlotte</strong></li>
           <li><strong>UNC Charlotte Engineering Graduate</strong></li>
         </ul>
-        <a href="#quote" class="btn-solid">Request a Quote</a>
+        <a data-quote href="#quote" class="btn-solid">Request a Quote</a>
       </div>
     </section>
 
@@ -282,8 +282,8 @@
       <h2 class="cta-title reveal">Let's build something<br>that lasts.</h2>
       <p class="cta-text reveal" style="--d:1">Tell us about your project. Consultations are $150, credited toward your project if you hire us.</p>
       <div class="hero-links reveal" style="--d:2">
-        <a href="#quote" class="link-underline">Request a Quote</a>
-        <a href="#quote" class="link-underline">Get an Estimate</a>
+        <a data-quote href="#quote" class="link-underline">Request a Quote</a>
+        <a data-quote href="#quote" class="link-underline">Get an Estimate</a>
       </div>
     </section>
   </main>
@@ -298,7 +298,7 @@
         <a href="#method">Open-Graded Method</a>
         <a href="#reviews">Reviews</a>
         <a href="#owner">Meet the Owner</a>
-        <a href="#quote">Request a Quote</a>
+        <a data-quote href="#quote">Request a Quote</a>
       </nav>
       <div class="footer-contact">
         <p>(555) 000-0000</p>
@@ -315,9 +315,29 @@
   <!-- Sticky action bar (phones only). Replace the placeholder number with Tom's. -->
   <div class="mobile-bar" aria-label="Quick actions">
     <a href="tel:5550000000" class="mb-call">Call Tom</a>
-    <a href="#quote" class="mb-quote">Request a Quote</a>
+    <a data-quote href="#quote" class="mb-quote">Request a Quote</a>
   </div>
 
-  <script src="js/main.js?v=4"></script>
+
+  <!-- ============ QUOTE ESTIMATOR (opened by any [data-quote] button) ============ -->
+  <dialog id="quote-dialog" class="quote" aria-labelledby="q-title">
+    <div class="q-shell">
+      <header class="q-head">
+        <img src="assets/img/logo.png" alt="Marathon Outdoors" class="q-logo">
+        <span class="q-step">Step 1 of 5</span>
+        <button type="button" class="q-close" aria-label="Close">&times;</button>
+      </header>
+      <div class="q-bar" aria-hidden="true"><span></span></div>
+      <div class="q-body"></div>
+      <footer class="q-foot">
+        <button type="button" class="q-back">Back</button>
+        <button type="button" class="q-next">Continue</button>
+      </footer>
+    </div>
+  </dialog>
+
+  <script src="js/pricing.js?v=5"></script>
+  <script src="js/estimator.js?v=5"></script>
+  <script src="js/main.js?v=5"></script>
 </body>
 </html>
